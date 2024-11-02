@@ -14,7 +14,7 @@ start_service() {
         procd_open_instance
         if [ "$tls" == "1" ]
         then
-                procd_set_param command /usr/bin/nezha-agent -s "${host}" -p "${secret}" -d --tls
+                procd_set_param command /usr/bin/nezha-agent -s "${host}" -p "${secret}" -d --tls --skip-conn --use-ipv6-countrycode --report-delay=4
         else
                 procd_set_param command /usr/bin/nezha-agent -s "${host}" -p "${secret}" -d
         fi
